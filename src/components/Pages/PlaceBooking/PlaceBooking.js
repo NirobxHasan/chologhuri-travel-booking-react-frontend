@@ -8,6 +8,7 @@ const PlaceBooking = () => {
     const { id } = useParams();
     const [services, setServices] = useState([]);
     const [service, setService] = useState({});
+    const { user } = useAuth();
     useEffect(() => {
         fetch('/services.json')
             .then((res) => res.json())

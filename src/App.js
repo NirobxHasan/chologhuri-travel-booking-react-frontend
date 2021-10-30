@@ -8,27 +8,35 @@ import HomePage from './components/Home/HomePage/HomePage';
 import NotFound from './components/Shared/NotFound/NotFound';
 import { Placeholder } from 'react-bootstrap';
 import PlaceBooking from './components/Pages/PlaceBooking/PlaceBooking';
+import Login from './components/Login/Login';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
     return (
         <div>
-            <Router>
-                <NavBar />
-                <Switch>
-                    <Route exact path="/">
-                        <HomePage />
-                    </Route>
-                    <Route path="/home">
-                        <HomePage />
-                    </Route>
-                    <Route path="/placebooking/:id">
-                        <PlaceBooking />
-                    </Route>
-                    <Route path="*">
-                        <NotFound />
-                    </Route>
-                </Switch>
-            </Router>
+            <AuthProvider>
+                <Router>
+                    <NavBar />
+                    <Switch>
+                        <Route exact path="/">
+                            <HomePage />
+                        </Route>
+                        <Route path="/home">
+                            <HomePage />
+                        </Route>
+                        <Route path="/login">
+                            <Login />
+                        </Route>
+                        <PrivateRoute path="/placebooking/:id">
+                            <PlaceBooking />
+                        </PrivateRoute>
+                        <Route path="*">
+                            <NotFound />
+                        </Route>
+                    </Switch>
+                </Router>
+            </AuthProvider>
         </div>
     );
 }
