@@ -10,7 +10,7 @@ const Services = () => {
             .then((data) => setService(data));
     }, []);
     return (
-        <Container className="mt-5">
+        <Container className="mt-5" id="services">
             <h1 className="section-title">Featured places to stay</h1>
             <p className="section-title-des">
                 Popular places to stay that Chisfis recommends for you

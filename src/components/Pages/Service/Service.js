@@ -3,8 +3,9 @@ import { Card, Col, Button, ListGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkedAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import './Service.css';
+import { Link } from 'react-router-dom';
 const Service = (props) => {
-    const { title, img, price, location, num_of_person } = props.service;
+    const { id, title, img, price, location, num_of_person } = props.service;
     return (
         <Col className="d-flex justify-content-center">
             {/* <div>
@@ -49,9 +50,9 @@ const Service = (props) => {
                                 /person
                             </span>{' '}
                         </h5>
-                        <Button variant="primary" className="mx-end">
-                            Book Now
-                        </Button>
+                        <Link to={`/placebooking/${id}`}>
+                            <button className="booking-btn">Book Now</button>
+                        </Link>
                     </div>
                 </Card.Footer>
             </Card>
