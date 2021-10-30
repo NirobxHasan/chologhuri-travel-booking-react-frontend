@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "3 Days 2 Night Trip to St. Martin's Island",
+        "price": 8000,
+        "location": "St. Martin's Island",
+        "days": "2 days 1 night",
+        "num_of_person": 3,
+        "description": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "img": "https://i.ibb.co/Kbz3vBv/saint.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Sajek valley Tour",
+        "price": 6500,
+        "location": "Rangamati",
+        "days": "2 days 1 night",
+        "num_of_person": 4,
+        "description": "Sajek Valley is one of the popular tourist spots in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District. The valley is 2,000 feet (610 m) above sea level.Sajek valley is known as the Queen of Hills & Roof of Rangamati.",
+        "img": "https://i.ibb.co/ZNkCk8j/sajek.jpg"
+    },
+    {
+        "id": 3,
+        "title": "2 Days 1 Night Trip to Cox's Bazar",
+        "price": 5000,
+        "location": "Cox's Bazar",
+        "days": "2 days 1 night",
+        "num_of_person": 2,
+        "description": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "img": "https://i.ibb.co/DYq0HJT/cox.jpg"
+    },
+    {
+        "id": 4,
+        "title": "3 Days 2 Night Trip to St. Martin's Island",
+        "price": 8000,
+        "location": "St. Martin's Island",
+        "days": "2 days 1 night",
+        "num_of_person": 3,
+        "description": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "img": "https://i.ibb.co/Kbz3vBv/saint.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Sajek valley Tour",
+        "price": 6500,
+        "location": "Rangamati",
+        "days": "2 days 1 night",
+        "num_of_person": 4,
+        "description": "Sajek Valley is one of the popular tourist spots in Bangladesh situated among the hills of the Kasalong range of mountains in Sajek union, Baghaichhari Upazila in Rangamati District. The valley is 2,000 feet (610 m) above sea level.Sajek valley is known as the Queen of Hills & Roof of Rangamati.",
+        "img": "https://i.ibb.co/ZNkCk8j/sajek.jpg"
+    },
+    {
+        "id": 6,
+        "title": "2 Days 1 Night Trip to Cox's Bazar",
+        "price": 5000,
+        "location": "Cox's Bazar",
+        "days": "2 days 1 night",
+        "num_of_person": 2,
+        "description": "Cox’s Bazar is a town on the southeast coast of Bangladesh. It’s known for its very long, sandy beachfront, stretching from Sea Beach in the north to Kolatoli Beach in the south. Aggameda Khyang monastery is home to bronze statues and centuries-old Buddhist manuscripts. South of town, the tropical rainforest of Himchari National Park has waterfalls and many birds. North, sea turtles breed on nearby Sonadia Island.",
+        "img": "https://i.ibb.co/DYq0HJT/cox.jpg"
+    }
+]

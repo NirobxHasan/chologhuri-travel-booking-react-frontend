@@ -1,0 +1,11 @@
+.service-price {
+    font-size: 1.3rem;
+    color: tomato;
+}
+.service-price-for-person {
+    font-size: 0.8rem;
+    color: gray;
+}
+.icon {
+    color: tomato;
+}
