@@ -54,7 +54,11 @@ const NavBar = () => {
                             </Nav.Link>
                         )}
 
-                        <Nav.Link className="nav-menu" href="#pricing">
+                        <Nav.Link
+                            as={HashLink}
+                            className="nav-menu"
+                            to="/home#about"
+                        >
                             About us
                         </Nav.Link>
                     </Nav>

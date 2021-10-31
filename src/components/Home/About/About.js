@@ -4,7 +4,7 @@ import './About.css';
 import welcomeimg from '../../../images/about.jpg';
 const About = () => {
     return (
-        <div className="about mb-5">
+        <div className="about mb-5" id="about">
             <h1 className="fw-bold">About</h1>
 
             <Row xs={1} sm={1} md={1} lg={2} className="m-3">
