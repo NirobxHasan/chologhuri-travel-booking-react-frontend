@@ -10,7 +10,9 @@ const HeaderBanner = () => {
                     Accompanying us, you have a trip full of experiences. With
                     Chisfis, booking accommodation, resort villas, hotels.
                 </p>
-                <a href="">Book Now!</a>
+                <a className="booknow-btn" href="">
+                    Book Now!
+                </a>
             </div>
         </div>
     );

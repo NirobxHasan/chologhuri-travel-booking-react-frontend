@@ -14,7 +14,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import MyOrder from './components/Pages/MyOrder/MyOrder';
 import ManageAllOrder from './components/Pages/ManageAllOrder/ManageAllOrder';
 import AddNewService from './components/Pages/AddNewService/AddNewService';
-
+import Footer from './components/Shared/Footer/Footer';
 function App() {
     return (
         <div>
@@ -47,6 +47,7 @@ function App() {
                             <NotFound />
                         </Route>
                     </Switch>
+                    <Footer />
                 </Router>
             </AuthProvider>
         </div>

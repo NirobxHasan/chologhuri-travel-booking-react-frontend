@@ -1,0 +1,17 @@
+.footer {
+    background-color: rgb(226, 226, 226);
+    color: rgb(107, 107, 107);
+    padding: 20px;
+    margin-top: 200px;
+}
+.footer a {
+    text-decoration: none;
+    display: block;
+    color: rgb(107, 107, 107);
+}
+.title {
+    color: tomato;
+}
+.input-field {
+    font-size: 12px;
+}

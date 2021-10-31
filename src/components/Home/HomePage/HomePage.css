@@ -1,0 +1,12 @@
+.icon {
+    color: white;
+    width: 100px;
+    margin: 10px;
+}
+
+.card-common {
+    background-color: tomato;
+    border-radius: 10px;
+}
+.service-header {
+}
