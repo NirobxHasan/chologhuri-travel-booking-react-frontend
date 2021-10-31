@@ -1,0 +1,29 @@
+.input-field {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px 20px;
+    width: 400px;
+}
+.input-field:focus {
+    outline: none !important;
+    border: 2px solid tomato;
+}
+.add-service-btn {
+    background-color: tomato;
+    padding: 7px 12px;
+    border: 0;
+    color: white;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.add-service-section {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media only screen and (max-width: 688px) {
+    .input-field {
+        width: 100%;
+    }
+}

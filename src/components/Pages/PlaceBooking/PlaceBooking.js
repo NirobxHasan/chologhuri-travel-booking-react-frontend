@@ -18,17 +18,20 @@ const PlaceBooking = () => {
         data.title = service.title;
         data.price = service.price;
         data.img = service.img;
+        data.status = 'Pendding';
 
-        axios.post('http://localhost:5000/order', data).then((res) => {
-            if (res.data.insertedId) {
-                alert('Successfully added order!');
-                history.push('/home');
-            }
-        });
+        axios
+            .post('https://spooky-beast-33270.herokuapp.com/order', data)
+            .then((res) => {
+                if (res.data.insertedId) {
+                    alert('Successfully added order!');
+                    history.push('/home');
+                }
+            });
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://spooky-beast-33270.herokuapp.com/services/${id}`)
             .then((res) => res.json())
             .then((service) => setService(service));
     }, []);

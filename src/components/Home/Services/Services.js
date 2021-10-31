@@ -5,7 +5,7 @@ import './Services.css';
 const Services = () => {
     const [services, setService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://spooky-beast-33270.herokuapp.com/services')
             .then((res) => res.json())
             .then((data) => setService(data));
     }, []);

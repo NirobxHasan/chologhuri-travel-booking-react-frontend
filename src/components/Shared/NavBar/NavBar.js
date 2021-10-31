@@ -30,9 +30,27 @@ const NavBar = () => {
                             <Nav.Link
                                 className="nav-menu"
                                 as={Link}
-                                to="/myorder"
+                                to="/myBooking"
                             >
-                                My Oder
+                                My Booking
+                            </Nav.Link>
+                        )}
+                        {user.email && (
+                            <Nav.Link
+                                className="nav-menu"
+                                as={Link}
+                                to="/allBooking"
+                            >
+                                Manage All Booking
+                            </Nav.Link>
+                        )}
+                        {user.email && (
+                            <Nav.Link
+                                className="nav-menu"
+                                as={Link}
+                                to="/addnewservice"
+                            >
+                                Add Service
                             </Nav.Link>
                         )}
 

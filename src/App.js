@@ -12,6 +12,8 @@ import Login from './components/Login/Login';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import MyOrder from './components/Pages/MyOrder/MyOrder';
+import ManageAllOrder from './components/Pages/ManageAllOrder/ManageAllOrder';
+import AddNewService from './components/Pages/AddNewService/AddNewService';
 
 function App() {
     return (
@@ -32,8 +34,14 @@ function App() {
                         <PrivateRoute path="/placebooking/:id">
                             <PlaceBooking />
                         </PrivateRoute>
-                        <PrivateRoute path="/myOrder">
+                        <PrivateRoute path="/myBooking">
                             <MyOrder />
+                        </PrivateRoute>
+                        <PrivateRoute path="/allBooking">
+                            <ManageAllOrder />
+                        </PrivateRoute>
+                        <PrivateRoute path="/addnewservice">
+                            <AddNewService />
                         </PrivateRoute>
                         <Route path="*">
                             <NotFound />

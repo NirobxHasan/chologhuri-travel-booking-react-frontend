@@ -8,14 +8,16 @@ const MyOrder = () => {
     const { user } = useAuth();
     const [myBooking, setMyBooking] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/mybooking/${user.email}`)
+        fetch(
+            `https://spooky-beast-33270.herokuapp.com/mybooking/${user.email}`
+        )
             .then((res) => res.json())
             .then((data) => setMyBooking(data));
     }, []);
 
     const deleteBooKing = (id) => {
         alert('Are you sure to cancel booking?');
-        fetch(`http://localhost:5000/mybooking/${id}`, {
+        fetch(`https://spooky-beast-33270.herokuapp.com/mybooking/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'
@@ -31,28 +33,36 @@ const MyOrder = () => {
     return (
         <Container className="mt-3">
             {myBooking.map((booking) => (
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-4">
+                <div className="card mb-3" key={booking._id}>
+                    <div className="row g-0">
+                        <div className="col-md-4">
                             <img
                                 src={booking.img}
-                                class="img-fluid rounded-start"
+                                className="img-fluid rounded-start"
                                 alt="..."
                             />
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h3 class="card-title">{booking.title}</h3>
+                        <div className="col-md-8">
+                            <div className="card-body">
+                                <h3 className="card-title">{booking.title}</h3>
                                 <h6>Price:{booking.price}</h6>
                                 <p>Date:{booking.date}</p>
-                                <button
-                                    className="booking-btn mt-3"
-                                    onClick={() => {
-                                        deleteBooKing(booking._id);
-                                    }}
-                                >
-                                    Cancel
-                                </button>
+                                <div className="d-flex justify-content-between align-items-end">
+                                    <p>
+                                        {' '}
+                                        <span className="badge bg-secondary">
+                                            {booking.status}
+                                        </span>
+                                    </p>
+                                    <button
+                                        className="booking-btn mt-3"
+                                        onClick={() => {
+                                            deleteBooKing(booking._id);
+                                        }}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
