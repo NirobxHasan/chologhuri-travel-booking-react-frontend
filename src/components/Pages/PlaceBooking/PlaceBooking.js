@@ -1,26 +1,37 @@
 import { faMapMarkedAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row, Button, ListGroup } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { useForm } from 'react-hook-form';
 import './PlaceBooking.css';
+import useAuth from '../../../hooks/useAuth';
 const PlaceBooking = () => {
     const { id } = useParams();
-    const [services, setServices] = useState([]);
+    const history = useHistory();
     const [service, setService] = useState({});
     const { user } = useAuth();
-    useEffect(() => {
-        fetch('/services.json')
-            .then((res) => res.json())
-            .then((data) => {
-                setServices(data);
-            });
-    }, []);
+    const { register, handleSubmit } = useForm();
+    const onSubmit = (data) => {
+        data.packageID = id;
+        data.title = service.title;
+        data.price = service.price;
+        data.img = service.img;
+
+        axios.post('http://localhost:5000/order', data).then((res) => {
+            if (res.data.insertedId) {
+                alert('Successfully added order!');
+                history.push('/home');
+            }
+        });
+    };
 
     useEffect(() => {
-        const found_service = services.find((ser) => ser.id == id);
-        setService(found_service);
-    }, [services]);
+        fetch(`http://localhost:5000/services/${id}`)
+            .then((res) => res.json())
+            .then((service) => setService(service));
+    }, []);
 
     return (
         <div>
@@ -70,24 +81,72 @@ const PlaceBooking = () => {
                                         person
                                     </div>
                                 </ListGroup.Item>
-                                <ListGroup.Item>
-                                    {' '}
-                                    <div className="d-flex justify-content-center align-items-center">
-                                        <h5 className="service-price">
-                                            <span className="service-price-for-person">
-                                                From
-                                            </span>{' '}
-                                            {service?.price}BDT
-                                            <span className="service-price-for-person">
-                                                /person
-                                            </span>{' '}
-                                        </h5>
-                                    </div>
-                                    <div className="d-flex justify-content-center align-items-center">
-                                        <Button>Place booking</Button>
-                                    </div>
-                                </ListGroup.Item>
                             </ListGroup>
+
+                            <div className="w-100 d-flex justify-content-center align-items-center">
+                                <form
+                                    onSubmit={handleSubmit(onSubmit)}
+                                    className="m-2"
+                                >
+                                    <label htmlFor="name">Name:</label>
+                                    <input
+                                        className="input-box"
+                                        id="name"
+                                        value={user.displayName}
+                                        {...register('Name', {
+                                            required: true,
+                                            maxLength: 30
+                                        })}
+                                    />
+                                    <label htmlFor="email">Eamil:</label>
+                                    <input
+                                        className="input-box"
+                                        id="email"
+                                        value={user?.email}
+                                        type="email"
+                                        {...register('Email', {
+                                            required: true
+                                        })}
+                                    />
+                                    <label htmlFor="phone">Phone:</label>
+                                    <input
+                                        className="input-box"
+                                        id="phone"
+                                        type="number"
+                                        {...register('phone', {
+                                            required: true
+                                        })}
+                                    />
+                                    <label htmlFor="checkin">Check in:</label>
+                                    <input
+                                        className="input-box"
+                                        id="checkin"
+                                        type="date"
+                                        {...register('date', {
+                                            required: true
+                                        })}
+                                    />
+                                    <br /> <br />
+                                    <div className="booking-submit">
+                                        <input type="submit" value="Booking" />
+                                    </div>
+                                </form>
+                            </div>
+
+                            <Card.Footer>
+                                {' '}
+                                <div className="d-flex justify-content-center align-items-center">
+                                    <h5 className="service-price">
+                                        <span className="service-price-for-person">
+                                            From
+                                        </span>{' '}
+                                        {service?.price}BDT
+                                        <span className="service-price-for-person">
+                                            /person
+                                        </span>{' '}
+                                    </h5>
+                                </div>
+                            </Card.Footer>
                         </Card>
                     </Col>
                 </Row>

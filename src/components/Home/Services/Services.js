@@ -5,7 +5,7 @@ import './Services.css';
 const Services = () => {
     const [services, setService] = useState([]);
     useEffect(() => {
-        fetch('./services.json')
+        fetch('http://localhost:5000/services')
             .then((res) => res.json())
             .then((data) => setService(data));
     }, []);
@@ -19,7 +19,7 @@ const Services = () => {
 
             <Row xs={1} md={2} lg={3} className="g-4">
                 {services.map((service) => (
-                    <Service key={service.id} service={service} />
+                    <Service key={service._id} service={service} />
                 ))}
             </Row>
         </Container>

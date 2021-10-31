@@ -5,7 +5,7 @@ import { faMapMarkedAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import './Service.css';
 import { Link } from 'react-router-dom';
 const Service = (props) => {
-    const { id, title, img, price, location, num_of_person } = props.service;
+    const { _id, title, img, price, location, num_of_person } = props.service;
     return (
         <Col className="d-flex justify-content-center">
             {/* <div>
@@ -50,7 +50,7 @@ const Service = (props) => {
                                 /person
                             </span>{' '}
                         </h5>
-                        <Link to={`/placebooking/${id}`}>
+                        <Link to={`/placebooking/${_id}`}>
                             <button className="booking-btn">Book Now</button>
                         </Link>
                     </div>

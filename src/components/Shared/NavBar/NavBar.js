@@ -25,9 +25,17 @@ const NavBar = () => {
                         >
                             Tour Package
                         </Nav.Link>
-                        <Nav.Link className="nav-menu" href="#pricing">
-                            Blog
-                        </Nav.Link>
+
+                        {user.email && (
+                            <Nav.Link
+                                className="nav-menu"
+                                as={Link}
+                                to="/myorder"
+                            >
+                                My Oder
+                            </Nav.Link>
+                        )}
+
                         <Nav.Link className="nav-menu" href="#pricing">
                             About us
                         </Nav.Link>

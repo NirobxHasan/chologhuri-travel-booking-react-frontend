@@ -1,0 +1,24 @@
+.input-box {
+    width: 90%;
+    padding: 5px;
+    margin: 5px 10px;
+    color: rgb(61, 61, 61);
+}
+.input-box:focus {
+    outline: none !important;
+    border: 2px solid tomato;
+}
+.booking-submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.booking-submit input {
+    background-color: tomato;
+    border: 0;
+    color: white;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}

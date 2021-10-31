@@ -11,6 +11,7 @@ import PlaceBooking from './components/Pages/PlaceBooking/PlaceBooking';
 import Login from './components/Login/Login';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import MyOrder from './components/Pages/MyOrder/MyOrder';
 
 function App() {
     return (
@@ -30,6 +31,9 @@ function App() {
                         </Route>
                         <PrivateRoute path="/placebooking/:id">
                             <PlaceBooking />
+                        </PrivateRoute>
+                        <PrivateRoute path="/myOrder">
+                            <MyOrder />
                         </PrivateRoute>
                         <Route path="*">
                             <NotFound />
