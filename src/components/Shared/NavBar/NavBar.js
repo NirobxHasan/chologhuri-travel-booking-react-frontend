@@ -35,7 +35,7 @@ const NavBar = () => {
                                 My Booking
                             </Nav.Link>
                         )}
-                        {user.email && (
+                        {/* {user.email && (
                             <Nav.Link
                                 className="nav-menu"
                                 as={Link}
@@ -43,7 +43,7 @@ const NavBar = () => {
                             >
                                 Manage All Booking
                             </Nav.Link>
-                        )}
+                        )} */}
                         {user.email && (
                             <Nav.Link
                                 className="nav-menu"
