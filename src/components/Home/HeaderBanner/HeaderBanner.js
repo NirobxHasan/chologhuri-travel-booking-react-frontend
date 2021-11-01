@@ -4,14 +4,17 @@ const HeaderBanner = () => {
     return (
         <div className="header-container">
             <div className="header-content">
-                <h1>Descover Fantastic Place</h1>
-                <h5>We offer a varity of service and option</h5>
-                <p>
+                <h1>EXPLORE BANGLADESH</h1>
+                <h5>
+                    Discover New Places In Bangladesh With Us, Adventure Awaits
+                    Discover More
+                </h5>
+                {/* <p>
                     Accompanying us, you have a trip full of experiences. With
                     Chisfis, booking accommodation, resort villas, hotels.
-                </p>
+                </p> */}
                 <a className="booknow-btn" href="">
-                    Book Now!
+                    DISCOVER MORE
                 </a>
             </div>
         </div>

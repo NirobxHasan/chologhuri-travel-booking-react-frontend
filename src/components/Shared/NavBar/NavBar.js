@@ -10,7 +10,7 @@ const NavBar = () => {
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container className="mb-2">
                 <Navbar.Brand href="#home" className="nav-brand me-5">
-                    CholoGhuri
+                    TRAVEL BUDDY
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
