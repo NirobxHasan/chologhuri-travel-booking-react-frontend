@@ -24,13 +24,17 @@ const Login = () => {
     };
     return (
         <Container className="d-flex justify-content-center align-items-center login-container">
-            <Card style={{ width: '35rem' }}>
+            <Card style={{ width: '30rem' }}>
                 <Card.Header>
                     {' '}
                     <h3>Please Login</h3>{' '}
                 </Card.Header>
-                <Card.Body className="mx-auto" style={{ textAlign: 'center' }}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                <Card.Body className="cardbody" style={{ textAlign: 'center' }}>
+                    <form
+                        style={{ width: '90%' }}
+                        className="mx-auto "
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
                         <input
                             placeholder="Your Email"
                             className="auth-input-field"

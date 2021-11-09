@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Button } from 'react-bootstrap';
+import { Card, Container, Button, Alert } from 'react-bootstrap';
 
 import googleIcon from '../../../images/icon/google.png';
 import useAuth from '../../../hooks/useAuth';
@@ -7,7 +7,8 @@ import { useHistory, useLocation } from 'react-router';
 import { useForm } from 'react-hook-form';
 
 const Registration = () => {
-    const { loginWithGoogle, user, logOut } = useAuth();
+    const { loginWithGoogle, authError, userRegistration, user, logOut } =
+        useAuth();
 
     //routing
     const location = useLocation();
@@ -15,7 +16,13 @@ const Registration = () => {
     const redirect_uri = location.state?.from || '/home';
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        if (data.password !== data.password2) {
+            alert("Password doesn't match");
+            return;
+        }
+        userRegistration(data.name, data.email, data.password, history);
+    };
 
     const hangleGoogleLogin = () => {
         loginWithGoogle().then((result) => {
@@ -25,13 +32,17 @@ const Registration = () => {
 
     return (
         <Container className="d-flex justify-content-center align-items-center login-container">
-            <Card style={{ width: '35rem' }}>
+            <Card style={{ width: '30rem' }}>
                 <Card.Header>
                     {' '}
                     <h3>Please Register</h3>{' '}
                 </Card.Header>
-                <Card.Body className="mx-auto" style={{ textAlign: 'center' }}>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                <Card.Body className="cardbody" style={{ textAlign: 'center' }}>
+                    <form
+                        style={{ width: '90%' }}
+                        className="mx-auto"
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
                         <input
                             placeholder="Your Name"
                             className="auth-input-field"
@@ -63,7 +74,7 @@ const Registration = () => {
 
                         <input
                             className="login-btn mx-auto"
-                            value="Login"
+                            value="Register"
                             type="submit"
                         />
                     </form>
@@ -76,8 +87,13 @@ const Registration = () => {
                         Already register? please login.
                     </button>
                     <br />
+                    {authError && (
+                        <Alert className="mx-auto" variant="danger">
+                            {authError}
+                        </Alert>
+                    )}
                     <button
-                        className="social-login-btn mt-5"
+                        className="social-login-btn mt-2"
                         onClick={hangleGoogleLogin}
                     >
                         {' '}

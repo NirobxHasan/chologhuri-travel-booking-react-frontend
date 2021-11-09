@@ -3,6 +3,8 @@ import {
     signInWithPopup,
     GoogleAuthProvider,
     onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    updateProfile,
     signOut
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
@@ -14,8 +16,32 @@ const useFirebase = () => {
     const auth = getAuth();
 
     const [user, setUser] = useState({});
-    const [loginError, setLogingError] = useState('');
+    const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+
+    //Email Registration
+    const userRegistration = (name, email, password, history) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: 'https://example.com/jane-q-user/profile.jpg'
+                })
+                    .then(() => {})
+                    .catch((error) => {});
+                history.push('/');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    };
 
     const loginWithGoogle = () => {
         setIsLoading(true);
@@ -36,7 +62,7 @@ const useFirebase = () => {
                 setUser({});
             })
             .catch((error) => {
-                setLogingError(error.massage);
+                setAuthError(error.massage);
             })
             .finally(() => setIsLoading(false));
     };
@@ -56,8 +82,10 @@ const useFirebase = () => {
     return {
         user,
         isLoading,
+        userRegistration,
         loginWithGoogle,
         setIsLoading,
+        authError,
         logOut
     };
 };
