@@ -1,4 +1,4 @@
-#CholoGuri Travel service website
+#TRAVEL BUDDY
 
 <!-- Live Link: [Click Here](https://chologhuri-travel.web.app/). -->
 

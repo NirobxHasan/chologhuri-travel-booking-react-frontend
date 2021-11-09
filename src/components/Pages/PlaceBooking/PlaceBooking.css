@@ -6,7 +6,7 @@
 }
 .input-box:focus {
     outline: none !important;
-    border: 2px solid tomato;
+    border: 2px solid #f79f1f;
 }
 .booking-submit {
     width: 100%;
@@ -14,7 +14,7 @@
     justify-content: center;
 }
 .booking-submit input {
-    background-color: tomato;
+    background-color: #f79f1f;
     border: 0;
     color: white;
     font-weight: 700;

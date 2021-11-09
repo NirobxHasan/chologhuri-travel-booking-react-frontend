@@ -10,8 +10,16 @@
     color: rgb(107, 107, 107);
 }
 .title {
-    color: tomato;
+    color: #f79f1f;
 }
 .input-field {
     font-size: 12px;
+}
+.copyright {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+.team-name {
+    font-weight: 600;
+    color: #f79f1f;
 }

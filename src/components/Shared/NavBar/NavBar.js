@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 import './NavBar.css';
+import logo from '../../../images/logo/favicon.jpg';
 const NavBar = () => {
     const { user, logOut } = useAuth();
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect expand="lg" className="navbar">
             <Container className="mb-2">
                 <Navbar.Brand href="#home" className="nav-brand me-5">
-                    TRAVEL BUDDY
+                    <a href="#" className="logo">
+                        <span>T</span>ravel <span>B</span>uddy
+                    </a>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

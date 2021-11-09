@@ -1,12 +1,49 @@
-.icon {
-    color: white;
-    width: 100px;
-    margin: 10px;
+.heading {
+    text-align: center;
+    padding: 2.5rem 0;
 }
 
-.card-common {
-    background-color: tomato;
-    border-radius: 10px;
+.heading span {
+    font-size: 2.8rem;
+    background: rgba(255, 165, 0, 0.2);
+    color: #f79f1f;
+    border-radius: 0.5rem;
+    padding: 0.2rem 1rem;
+    margin-right: 2px;
 }
-.service-header {
+.heading span.space {
+    background: none;
+}
+.services .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.services .box-container .box {
+    flex: 1 1 20rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.services .box-container .box i {
+    padding: 1rem;
+    font-size: 5rem;
+    color: #f79f1f;
+}
+
+.services .box-container .box h3 {
+    font-size: 1.5rem;
+    color: #444;
+}
+
+.services .box-container .box p {
+    font-size: 1rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.services .box-container .box:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
 }

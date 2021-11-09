@@ -9,6 +9,6 @@
 .line {
     display: block;
     width: 250px;
-    border: 3px solid tomato;
+    border: 3px solid #f79f1f;
     margin-bottom: 50px;
 }

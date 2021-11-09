@@ -8,13 +8,14 @@ import HomePage from './components/Home/HomePage/HomePage';
 import NotFound from './components/Shared/NotFound/NotFound';
 import { Placeholder } from 'react-bootstrap';
 import PlaceBooking from './components/Pages/PlaceBooking/PlaceBooking';
-import Login from './components/Login/Login';
+import Login from './components/Login/Login/Login';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import MyOrder from './components/Pages/MyOrder/MyOrder';
 import ManageAllOrder from './components/Pages/ManageAllOrder/ManageAllOrder';
 import AddNewService from './components/Pages/AddNewService/AddNewService';
 import Footer from './components/Shared/Footer/Footer';
+import Registration from './components/Login/Registration/Registration';
 function App() {
     return (
         <div>
@@ -30,6 +31,9 @@ function App() {
                         </Route>
                         <Route path="/login">
                             <Login />
+                        </Route>
+                        <Route path="/registration">
+                            <Registration />
                         </Route>
                         <PrivateRoute path="/placebooking/:id">
                             <PlaceBooking />

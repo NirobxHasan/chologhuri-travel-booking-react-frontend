@@ -1,0 +1,37 @@
+.review-slider {
+    padding-bottom: 2rem;
+}
+
+.swiper-slide .box {
+    padding: 1.2rem;
+    text-align: center;
+
+    box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    margin: 10px;
+    width: 350px;
+}
+
+.box img {
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.swiper-slide .box h3 {
+    color: #444;
+    font-size: 1.3rem;
+}
+
+.swiper-slide .box p {
+    color: #444;
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+}
+
+.swiper-slide .box .stars i {
+    color: #f79f1f;
+    font-size: 1.3rem;
+}

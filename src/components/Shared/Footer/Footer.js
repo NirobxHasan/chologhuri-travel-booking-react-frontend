@@ -18,7 +18,7 @@ const Footer = () => {
                 <Col className="d-flex justify-content-center align-items-center">
                     <Container>
                         <div>
-                            <h1 className="brand-name">CholoGhuri</h1>
+                            <h1 className="brand-name">TRAVEL BUDDY</h1>
                             <p>
                                 ” The real voyage of discovery consists not in
                                 seeking new landscapes, but in having new eyes.”
@@ -60,6 +60,11 @@ const Footer = () => {
                     </Container>
                 </Col>
             </Row>
+            <hr />
+            <h4 className="text-center copyright">
+                Created By <span className="team-name">Team Neptune</span> |©
+                All Rights Reserved!
+            </h4>
         </div>
     );
 };
