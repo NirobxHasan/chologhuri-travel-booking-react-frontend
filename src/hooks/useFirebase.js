@@ -4,6 +4,7 @@ import {
     GoogleAuthProvider,
     onAuthStateChanged,
     createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
     updateProfile,
     signOut
 } from 'firebase/auth';
@@ -36,6 +37,22 @@ const useFirebase = () => {
                     .then(() => {})
                     .catch((error) => {});
                 history.push('/');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+    //Login With email
+
+    const loginWithEmail = (email, password, history, location) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+                const destination = location?.state?.from || '/home';
+                history.push(destination);
             })
             .catch((error) => {
                 setAuthError(error.message);
@@ -83,6 +100,7 @@ const useFirebase = () => {
         user,
         isLoading,
         userRegistration,
+        loginWithEmail,
         loginWithGoogle,
         setIsLoading,
         authError,

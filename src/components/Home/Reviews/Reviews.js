@@ -1,37 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import pic02 from '../../../images/peoples/pic2.jpg';
-
-import { Carousel } from '@trendyol-js/react-carousel';
+import Slider from 'react-slick';
 import './Reviews.css';
-const reviews = [
-    {
-        name: 'elma',
-        img: pic02,
-        review: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, beatae eaque temporibus mollitia, dolorem tempora aspernatur neque vero inventore sapiente, accusantium recusandae quas. Repellat enim aspernatur quidem dolorum. Perspiciatis consequuntur atque placeat delectus recusandae ipsum repellat? Rem voluptatum molestias natus rerum optio eum similique fugit quod amet! Ipsam, neque nobis?'
-    },
-    {
-        name: 'elma1',
-        img: pic02,
-        review: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, beatae eaque temporibus mollitia, dolorem tempora aspernatur neque vero inventore sapiente, accusantium recusandae quas. Repellat enim aspernatur quidem dolorum. Perspiciatis consequuntur atque placeat delectus recusandae ipsum repellat? Rem voluptatum molestias natus rerum optio eum similique fugit quod amet! Ipsam, neque nobis?'
-    },
-    {
-        name: 'elma2',
-        img: pic02,
-        review: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, beatae eaque temporibus mollitia, dolorem tempora aspernatur neque vero inventore sapiente, accusantium recusandae quas. Repellat enim aspernatur quidem dolorum. Perspiciatis consequuntur atque placeat delectus recusandae ipsum repellat? Rem voluptatum molestias natus rerum optio eum similique fugit quod amet! Ipsam, neque nobis?'
-    },
-    {
-        name: 'elma3',
-        img: pic02,
-        review: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, beatae eaque temporibus mollitia, dolorem tempora aspernatur neque vero inventore sapiente, accusantium recusandae quas. Repellat enim aspernatur quidem dolorum. Perspiciatis consequuntur atque placeat delectus recusandae ipsum repellat? Rem voluptatum molestias natus rerum optio eum similique fugit quod amet! Ipsam, neque nobis?'
-    },
-    {
-        name: 'elma4',
-        img: pic02,
-        review: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, beatae eaque temporibus mollitia, dolorem tempora aspernatur neque vero inventore sapiente, '
-    }
-];
+import ReactStars from 'react-rating-stars-component';
 
 const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then((res) => res.json())
+            .then((data) => setReviews(data));
+    }, []);
+    const settings = {
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 2000,
+        autoplaySpeed: 2000,
+
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 450,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
     return (
         <div className="my-5">
             <h1 class="heading">
@@ -42,33 +56,28 @@ const Reviews = () => {
                 <span>e</span>
                 <span>w</span>
             </h1>
-            <Carousel
-                responsive={false}
-                rightArrow={true}
-                leftArrow={true}
-                show={3.5}
-                slide={2}
-                transition={0.5}
-                swiping={true}
-                dynamic={true}
-            >
-                {reviews.map((review) => (
-                    <div class="swiper-slide">
-                        <div class="box">
-                            <img src={review.img} alt="" />
-                            <h3>{review.name}</h3>
-                            <p>{review.review}</p>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+
+            <div className="slide-container p-2">
+                <Slider {...settings}>
+                    {reviews.map((review) => (
+                        <div class="swiper-slide ">
+                            <div class="box">
+                                <h3>{review.displayName}</h3>
+                                <p>{review.review}</p>
+                                <div class="stars">
+                                    <ReactStars
+                                        count={5}
+                                        size={26}
+                                        value={review.rating}
+                                        edit={false}
+                                        activeColor="#ffd700"
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
-            </Carousel>
+                    ))}
+                </Slider>
+            </div>
         </div>
     );
 };

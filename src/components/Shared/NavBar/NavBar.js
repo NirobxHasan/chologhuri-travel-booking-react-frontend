@@ -47,7 +47,7 @@ const NavBar = () => {
                                 Manage All Booking
                             </Nav.Link>
                         )} */}
-                        {user.email && (
+                        {/* {user.email && (
                             <Nav.Link
                                 className="nav-menu"
                                 as={Link}
@@ -55,21 +55,32 @@ const NavBar = () => {
                             >
                                 Add Service
                             </Nav.Link>
+                        )} */}
+                        {user.email && (
+                            <Nav.Link
+                                className="nav-menu"
+                                as={Link}
+                                to="/addreview"
+                            >
+                                Add Review
+                            </Nav.Link>
                         )}
 
-                        <Nav.Link
+                        {/* <Nav.Link
                             as={HashLink}
                             className="nav-menu"
                             to="/home#about"
                         >
                             About us
-                        </Nav.Link>
+                        </Nav.Link> */}
                     </Nav>
                     <Nav>
                         {user.displayName ? (
-                            <Navbar.Text>
+                            <Navbar.Text style={{ color: '#fff' }}>
                                 Signed in as:{' '}
-                                <a href="#login">{user.displayName}</a>
+                                <a href="#login" style={{ color: '#fff' }}>
+                                    {user.displayName}
+                                </a>
                             </Navbar.Text>
                         ) : (
                             ''

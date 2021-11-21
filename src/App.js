@@ -16,6 +16,8 @@ import ManageAllOrder from './components/Pages/ManageAllOrder/ManageAllOrder';
 import AddNewService from './components/Pages/AddNewService/AddNewService';
 import Footer from './components/Shared/Footer/Footer';
 import Registration from './components/Login/Registration/Registration';
+import AddReviews from './components/Pages/AddReviews/AddReviews';
+
 function App() {
     return (
         <div>
@@ -46,6 +48,9 @@ function App() {
                         </PrivateRoute>
                         <PrivateRoute path="/addnewservice">
                             <AddNewService />
+                        </PrivateRoute>
+                        <PrivateRoute path="/addreview">
+                            <AddReviews />
                         </PrivateRoute>
                         <Route path="*">
                             <NotFound />

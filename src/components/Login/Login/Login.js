@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Button } from 'react-bootstrap';
+import { Card, Container, Button, Alert } from 'react-bootstrap';
 import './Login.css';
 import googleIcon from '../../../images/icon/google.png';
 import useAuth from '../../../hooks/useAuth';
@@ -7,7 +7,8 @@ import { useHistory, useLocation } from 'react-router';
 import { useForm } from 'react-hook-form';
 
 const Login = () => {
-    const { loginWithGoogle, user, logOut } = useAuth();
+    const { loginWithGoogle, loginWithEmail, authError, user, logOut } =
+        useAuth();
 
     //routing
     const location = useLocation();
@@ -15,7 +16,9 @@ const Login = () => {
     const redirect_uri = location.state?.from || '/home';
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        loginWithEmail(data.email, data.password, history, location);
+    };
 
     const hangleGoogleLogin = () => {
         loginWithGoogle().then((result) => {
@@ -65,6 +68,12 @@ const Login = () => {
                         Create a new account?
                     </button>
                     <br />
+                    {authError && (
+                        <Alert className="mx-auto" variant="danger">
+                            {authError}
+                        </Alert>
+                    )}
+
                     <button
                         className="social-login-btn mt-5"
                         onClick={hangleGoogleLogin}
