@@ -17,12 +17,14 @@ const AddReviews = () => {
         newReview['displayName'] = user.displayName;
         newReview['email'] = user.email;
         console.log(newReview);
-        axios.post('http://localhost:5000/reviews', newReview).then((res) => {
-            if (res.data.insertedId) {
-                alert('Successfully added your review!');
-                history.push('/home');
-            }
-        });
+        axios
+            .post('https://spooky-beast-33270.herokuapp.com/reviews', newReview)
+            .then((res) => {
+                if (res.data.insertedId) {
+                    alert('Successfully added your review!');
+                    history.push('/home');
+                }
+            });
 
         e.preventDefault();
     };
