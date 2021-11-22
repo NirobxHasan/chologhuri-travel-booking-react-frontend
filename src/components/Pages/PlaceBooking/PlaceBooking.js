@@ -101,7 +101,7 @@ const PlaceBooking = () => {
                                             maxLength: 30
                                         })}
                                     />
-                                    <label htmlFor="email">Eamil:</label>
+                                    <label htmlFor="email">Email:</label>
                                     <input
                                         className="input-box"
                                         id="email"
