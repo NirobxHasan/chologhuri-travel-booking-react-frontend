@@ -17,6 +17,9 @@ import AddNewService from './components/Pages/AddNewService/AddNewService';
 import Footer from './components/Shared/Footer/Footer';
 import Registration from './components/Login/Registration/Registration';
 import AddReviews from './components/Pages/AddReviews/AddReviews';
+import AddBlog from './components/Blogs/AddBlog/AddBlog';
+import Blogs from './components/Blogs/Blogs/Blogs';
+import BlogDetails from './components/Blogs/BlogDetails/BlogDetails';
 
 function App() {
     return (
@@ -52,6 +55,16 @@ function App() {
                         <PrivateRoute path="/addreview">
                             <AddReviews />
                         </PrivateRoute>
+                        <PrivateRoute path="/addblog">
+                            <AddBlog />
+                        </PrivateRoute>
+                        <Route exact path="/blogs">
+                            <Blogs />
+                        </Route>
+                        <Route path="/blogs/:id">
+                            <BlogDetails />
+                        </Route>
+
                         <Route path="*">
                             <NotFound />
                         </Route>

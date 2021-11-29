@@ -60,6 +60,24 @@ const NavBar = () => {
                             <Nav.Link
                                 className="nav-menu"
                                 as={Link}
+                                to="/blogs"
+                            >
+                                Blogs
+                            </Nav.Link>
+                        )}
+                        {/* {user.email && (
+                            <Nav.Link
+                                className="nav-menu"
+                                as={Link}
+                                to="/addblog"
+                            >
+                                Add Blog
+                            </Nav.Link>
+                        )} */}
+                        {user.email && (
+                            <Nav.Link
+                                className="nav-menu"
+                                as={Link}
                                 to="/addreview"
                             >
                                 Add Review
