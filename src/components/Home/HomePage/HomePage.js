@@ -15,6 +15,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Reviews from '../Reviews/Reviews';
 import useAuth from '../../../hooks/useAuth';
 import Transports from '../Transport/Transports/Transports';
+import Blogs from '../Blogs/Blogs';
 const HomePage = () => {
     const { user } = useAuth();
     return (
@@ -99,8 +100,9 @@ const HomePage = () => {
                     </div>
                 </section>
             </Container>
-            <Reviews />
             {user.email && <Transports />}
+            <Blogs />
+            <Reviews />
         </div>
     );
 };

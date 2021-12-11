@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import Blog from '../Blog/Blog';
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
-
+    const { user } = useAuth();
     useEffect(() => {
         fetch('https://spooky-beast-33270.herokuapp.com/blogs')
             .then((res) => res.json())
@@ -13,12 +14,16 @@ const Blogs = () => {
     }, []);
     return (
         <Container className="mt-5">
-            <Link
-                className="text-uppercase  text-decoration-none "
-                to="/addblog"
-            >
-                <Button variant="warning fs-5 fw-bold">Write a story</Button>
-            </Link>
+            {user.email && (
+                <Link
+                    className="text-uppercase  text-decoration-none "
+                    to="/addblog"
+                >
+                    <Button variant="warning fs-5 fw-bold">
+                        Write a story
+                    </Button>
+                </Link>
+            )}
 
             <div className="mt-5">
                 <Row xs={1} md={2} lg={3} className="g-4">
