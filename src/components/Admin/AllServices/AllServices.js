@@ -10,7 +10,7 @@ const AllServices = () => {
             .then((data) => setService(data));
     }, []);
     const deleteService = (id) => {
-        fetch(`http://localhost:5000/services/${id}`, {
+        fetch(`https://spooky-beast-33270.herokuapp.com/services/${id}`, {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json'

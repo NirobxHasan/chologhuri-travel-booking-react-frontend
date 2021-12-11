@@ -77,7 +77,7 @@ const useFirebase = () => {
     //Save user to the database
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://spooky-beast-33270.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -113,7 +113,9 @@ const useFirebase = () => {
 
     //check admin
     useEffect(() => {
-        fetch(`http://localhost:5000/users_admin/${user.email}`)
+        fetch(
+            `https://spooky-beast-33270.herokuapp.com/users_admin/${user.email}`
+        )
             .then((res) => res.json())
             .then((result) => setAdmin(result.admin));
     }, [user.email]);

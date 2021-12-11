@@ -5,7 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 const AllTransport = () => {
     const [transports, setTransports] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/transports/`)
+        fetch(`https://spooky-beast-33270.herokuapp.com/transports/`)
             .then((res) => res.json())
             .then((data) => setTransports(data));
     }, []);
