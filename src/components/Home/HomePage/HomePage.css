@@ -4,13 +4,14 @@
 }
 
 .heading span {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     background: rgba(255, 165, 0, 0.2);
     color: #f79f1f;
     border-radius: 0.5rem;
     padding: 0.2rem 1rem;
     margin-right: 2px;
     text-transform: uppercase;
+    font-weight: bold;
 }
 .heading span.space {
     background: none;

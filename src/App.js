@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import NavBar from './components/Shared/NavBar/NavBar';
+
 import HeaderBanner from './components/Home/HeaderBanner/HeaderBanner';
 import Services from './components/Home/Services/Services';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -23,13 +23,17 @@ import BlogDetails from './components/Blogs/BlogDetails/BlogDetails';
 import Transports from './components/Home/Transport/Transports/Transports';
 import BookedTransport from './components/Pages/BookedTransport/BookedTransport';
 import MapDirection from './components/Pages/MapDirection/MapDirection';
+import NavBarSelector from './components/NavBarSelector/NavBarSelector';
+import AdminRoute from './components/Admin/AdminRoute/AdminRoute';
+import AllTransport from './components/Admin/AllTransport/AllTransport';
+import AllServices from './components/Admin/AllServices/AllServices';
 
 function App() {
     return (
         <div>
             <AuthProvider>
                 <Router>
-                    <NavBar />
+                    <NavBarSelector />
                     <Switch>
                         <Route exact path="/">
                             <HomePage />
@@ -49,12 +53,18 @@ function App() {
                         <PrivateRoute path="/myBooking">
                             <MyOrder />
                         </PrivateRoute>
-                        <PrivateRoute path="/allBooking">
+                        <AdminRoute path="/allBooking">
                             <ManageAllOrder />
-                        </PrivateRoute>
-                        <PrivateRoute path="/addnewservice">
+                        </AdminRoute>
+                        <AdminRoute path="/addnewservice">
                             <AddNewService />
-                        </PrivateRoute>
+                        </AdminRoute>
+                        <AdminRoute path="/alltransport">
+                            <AllTransport />
+                        </AdminRoute>
+                        <AdminRoute path="/allservice">
+                            <AllServices />
+                        </AdminRoute>
                         <PrivateRoute path="/addreview">
                             <AddReviews />
                         </PrivateRoute>

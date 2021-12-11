@@ -1,18 +1,16 @@
-import React from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
-import './NavBar.css';
-import logo from '../../../images/logo/favicon.jpg';
-const NavBar = () => {
-    const { user, logOut } = useAuth();
+
+const AdminHeader = () => {
+    const { user, admin, logOut } = useAuth();
     return (
         <Navbar collapseOnSelect expand="lg" className="navbar">
             <Container className="mb-2">
                 <Navbar.Brand href="#home" className="nav-brand me-5">
                     <a href="#" className="logo">
-                        <span>T</span>ravel <span>B</span>uddy
+                        ADMIN PANEL
                     </a>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -21,72 +19,48 @@ const NavBar = () => {
                         <Nav.Link className="nav-menu" as={Link} to="/home">
                             Home
                         </Nav.Link>
-                        <Nav.Link
-                            className="nav-menu"
-                            as={HashLink}
-                            to="/home#services"
-                        >
-                            Tour Package
-                        </Nav.Link>
-                        <Nav.Link className="nav-menu" as={Link} to="/map">
-                            Map
-                        </Nav.Link>
-
-                        {user.email && (
+                        {admin && (
+                            // <Nav.Link
+                            //     className="nav-menu"
+                            //     as={Link}
+                            //     to="/allBooking"
+                            // >
+                            //     Manage All Booking
+                            // </Nav.Link>
                             <NavDropdown
-                                title="My Booking"
+                                title="Booking"
                                 // className="dropdown"
                                 id="dropdown"
                                 menuVariant="dark"
                             >
-                                <NavDropdown.Item as={Link} to="/myBooking">
-                                    Booked Tour Package
+                                <NavDropdown.Item as={Link} to="/allBooking">
+                                    Manage All Booking
                                 </NavDropdown.Item>
-                                <NavDropdown.Item
-                                    as={Link}
-                                    to="/bookedTransport"
-                                >
-                                    Booked Transport
+                                <NavDropdown.Item as={Link} to="/alltransport">
+                                    All Booked Transport
                                 </NavDropdown.Item>
                             </NavDropdown>
                         )}
-
-                        {user.email && (
+                        {admin && (
                             <Nav.Link
                                 className="nav-menu"
                                 as={Link}
-                                to="/blogs"
+                                to="/addnewservice"
                             >
-                                Blogs
+                                Add Service
                             </Nav.Link>
                         )}
-                        {/* {user.email && (
+                        {admin && (
                             <Nav.Link
                                 className="nav-menu"
                                 as={Link}
-                                to="/addblog"
+                                to="/allservice"
                             >
-                                Add Blog
-                            </Nav.Link>
-                        )} */}
-                        {user.email && (
-                            <Nav.Link
-                                className="nav-menu"
-                                as={Link}
-                                to="/addreview"
-                            >
-                                Add Review
+                                All Service
                             </Nav.Link>
                         )}
-
-                        {/* <Nav.Link
-                            as={HashLink}
-                            className="nav-menu"
-                            to="/home#about"
-                        >
-                            About us
-                        </Nav.Link> */}
                     </Nav>
+
                     <Nav>
                         {user.displayName ? (
                             <Navbar.Text style={{ color: '#fff' }}>
@@ -117,4 +91,4 @@ const NavBar = () => {
     );
 };
 
-export default NavBar;
+export default AdminHeader;

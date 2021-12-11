@@ -19,6 +19,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     //Email Registration
     const userRegistration = (name, email, password, history) => {
@@ -29,7 +30,7 @@ const useFirebase = () => {
 
                 const newUser = { email, displayName: name };
                 setUser(newUser);
-
+                saveUser(email, name, 'POST');
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: 'https://example.com/jane-q-user/profile.jpg'
@@ -72,6 +73,20 @@ const useFirebase = () => {
         // })
         // .finally(() => setIsLoading(false));
     };
+
+    //Save user to the database
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then((res) => res.json)
+            .then((data) => {});
+    };
     const logOut = () => {
         setIsLoading(true);
         signOut(auth)
@@ -96,8 +111,16 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, []);
 
+    //check admin
+    useEffect(() => {
+        fetch(`http://localhost:5000/users_admin/${user.email}`)
+            .then((res) => res.json())
+            .then((result) => setAdmin(result.admin));
+    }, [user.email]);
+
     return {
         user,
+        admin,
         isLoading,
         userRegistration,
         loginWithEmail,
