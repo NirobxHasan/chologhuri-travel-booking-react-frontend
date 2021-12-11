@@ -10,6 +10,7 @@
     border-radius: 0.5rem;
     padding: 0.2rem 1rem;
     margin-right: 2px;
+    text-transform: uppercase;
 }
 .heading span.space {
     background: none;
@@ -46,4 +47,22 @@
 
 .services .box-container .box:hover {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 668px) {
+    .heading {
+        text-align: center;
+        padding: 1.2rem 0;
+    }
+
+    .heading span {
+        font-size: 1.6rem;
+        background: rgba(255, 165, 0, 0.2);
+        font-weight: 700;
+        color: #f79f1f;
+        border-radius: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        margin-right: 2px;
+        text-transform: uppercase;
+    }
 }

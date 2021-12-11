@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
@@ -28,15 +28,27 @@ const NavBar = () => {
                         >
                             Tour Package
                         </Nav.Link>
+                        <Nav.Link className="nav-menu" as={Link} to="/map">
+                            Map
+                        </Nav.Link>
 
                         {user.email && (
-                            <Nav.Link
-                                className="nav-menu"
-                                as={Link}
-                                to="/myBooking"
+                            <NavDropdown
+                                title="My Booking"
+                                // className="dropdown"
+                                id="dropdown"
+                                menuVariant="dark"
                             >
-                                My Booking
-                            </Nav.Link>
+                                <NavDropdown.Item as={Link} to="/myBooking">
+                                    Booked Tour Package
+                                </NavDropdown.Item>
+                                <NavDropdown.Item
+                                    as={Link}
+                                    to="/bookedTransport"
+                                >
+                                    Booked Transport
+                                </NavDropdown.Item>
+                            </NavDropdown>
                         )}
                         {/* {user.email && (
                             <Nav.Link

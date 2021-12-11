@@ -13,7 +13,10 @@ import {
 import './HomePage.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import Reviews from '../Reviews/Reviews';
+import useAuth from '../../../hooks/useAuth';
+import Transports from '../Transport/Transports/Transports';
 const HomePage = () => {
+    const { user } = useAuth();
     return (
         <div>
             <HeaderBanner />
@@ -97,8 +100,8 @@ const HomePage = () => {
                 </section>
             </Container>
             <Reviews />
+            {user.email && <Transports />}
         </div>
-        // <!-- services section ends -->
     );
 };
 

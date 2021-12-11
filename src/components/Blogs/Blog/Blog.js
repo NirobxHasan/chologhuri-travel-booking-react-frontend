@@ -19,7 +19,7 @@ const Blog = ({ blog }) => {
                 <Card.Body>
                     <Link className="text-decoration-none" to={`/blogs/${_id}`}>
                         {' '}
-                        <Card.Title>{title}</Card.Title>
+                        <Card.Title>{title.slice(0, 32)}..</Card.Title>
                     </Link>
                     <Card.Text>{blogBody.slice(0, 105)}.....''</Card.Text>
                 </Card.Body>

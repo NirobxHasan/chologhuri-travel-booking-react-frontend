@@ -1,0 +1,45 @@
+.transport-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+.transport-img {
+    width: 190px;
+    height: 190px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.transport-card {
+    width: 250px;
+
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    align-items: center;
+    padding: 5px 10px;
+}
+.transport-img img {
+    width: 100%;
+    object-fit: contain;
+}
+.transport-book {
+    text-align: center;
+}
+.transport-book h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.transport-btn {
+    border: 0;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: #f79f1f;
+    color: white;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}

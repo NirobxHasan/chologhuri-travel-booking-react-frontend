@@ -20,6 +20,9 @@ import AddReviews from './components/Pages/AddReviews/AddReviews';
 import AddBlog from './components/Blogs/AddBlog/AddBlog';
 import Blogs from './components/Blogs/Blogs/Blogs';
 import BlogDetails from './components/Blogs/BlogDetails/BlogDetails';
+import Transports from './components/Home/Transport/Transports/Transports';
+import BookedTransport from './components/Pages/BookedTransport/BookedTransport';
+import MapDirection from './components/Pages/MapDirection/MapDirection';
 
 function App() {
     return (
@@ -55,6 +58,15 @@ function App() {
                         <PrivateRoute path="/addreview">
                             <AddReviews />
                         </PrivateRoute>
+
+                        <PrivateRoute exact path="/bookedTransport">
+                            <BookedTransport />
+                        </PrivateRoute>
+
+                        <Route exact path="/map">
+                            <MapDirection />
+                        </Route>
+
                         <PrivateRoute path="/addblog">
                             <AddBlog />
                         </PrivateRoute>
