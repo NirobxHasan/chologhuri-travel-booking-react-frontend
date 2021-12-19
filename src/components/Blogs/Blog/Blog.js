@@ -21,7 +21,7 @@ const Blog = ({ blog }) => {
                         {' '}
                         <Card.Title>{title.slice(0, 32)}..</Card.Title>
                     </Link>
-                    <Card.Text>{blogBody.slice(0, 105)}.....''</Card.Text>
+                    <Card.Text>{blogBody.slice(0, 110)}.....''</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                     <small className="text-muted">

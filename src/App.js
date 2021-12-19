@@ -68,15 +68,12 @@ function App() {
                         <PrivateRoute path="/addreview">
                             <AddReviews />
                         </PrivateRoute>
-
                         <PrivateRoute exact path="/bookedTransport">
                             <BookedTransport />
                         </PrivateRoute>
-
                         <Route exact path="/map">
                             <MapDirection />
                         </Route>
-
                         <PrivateRoute path="/addblog">
                             <AddBlog />
                         </PrivateRoute>
